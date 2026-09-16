@@ -197,12 +197,14 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := TVLauncher
 LOCAL_MODULE_OWNER := mtgapps
 LOCAL_SRC_FILES := proprietary/product/priv-app/TVLauncher/TVLauncher.apk
-LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_CERTIFICATE := platform
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
 LOCAL_PRODUCT_MODULE := true
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_OVERRIDES_PACKAGES := Launcher3 Launcher3QuickStep RKTvLauncher
+# The prebuilt contains compressed dex and must be rebuilt for Android 13.
+# Sign it with the product platform key after the build uncompresses/aligned it.
 LOCAL_DEX_PREOPT := false
 LOCAL_ENFORCE_USES_LIBRARIES := false
 include $(BUILD_PREBUILT)
@@ -211,11 +213,12 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := TVRecommendations
 LOCAL_MODULE_OWNER := mtgapps
 LOCAL_SRC_FILES := proprietary/product/priv-app/TVRecommendations/TVRecommendations.apk
-LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_CERTIFICATE := platform
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
 LOCAL_PRODUCT_MODULE := true
 LOCAL_PRIVILEGED_MODULE := true
+# Keep the companion APK on the same product platform signature.
 LOCAL_DEX_PREOPT := false
 LOCAL_ENFORCE_USES_LIBRARIES := false
 include $(BUILD_PREBUILT)

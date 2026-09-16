@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Android TV Home 3.5.3 targets SDK 31 but predates the Android 12
+    CLOSE_SYSTEM_DIALOGS enforcement. Its AppsViewActivity sends that
+    broadcast while resuming. Keep both compatibility changes scoped to
+    this prebuilt package; do not disable them globally.
+-->
+<overrides>
+    <change-overrides changeId="174664120">
+        <validated>
+            <override-value packageName="com.google.android.tvlauncher"
+                enabled="false" />
+        </validated>
+    </change-overrides>
+    <change-overrides changeId="174664365">
+        <validated>
+            <override-value packageName="com.google.android.tvlauncher"
+                enabled="false" />
+        </validated>
+    </change-overrides>
+</overrides>

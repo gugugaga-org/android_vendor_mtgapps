@@ -73,6 +73,12 @@ LOCAL_PRODUCT_MODULE := true
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_MODULE_STEM := base
 LOCAL_INSTALLED_MODULE_STEM := base.apk
+# The APK has extractNativeLibs=true, so on a read-only product partition the
+# runtime cannot extract its JNI libs; install them next to the APK instead.
+LOCAL_PREBUILT_JNI_LIBS_arm64 := \
+    proprietary/product/priv-app/KernelSUManager/lib/arm64-v8a/libkernelsu.so \
+    proprietary/product/priv-app/KernelSUManager/lib/arm64-v8a/libksud.so \
+    proprietary/product/priv-app/KernelSUManager/lib/arm64-v8a/libmagiskboot.so
 LOCAL_DEX_PREOPT := false
 LOCAL_ENFORCE_USES_LIBRARIES := false
 include $(BUILD_PREBUILT)
@@ -82,6 +88,15 @@ LOCAL_MODULE := AndroidMediaShell
 LOCAL_MODULE_OWNER := mtgapps
 LOCAL_SRC_FILES := proprietary/product/priv-app/AndroidMediaShell/AndroidMediaShell.apk
 LOCAL_REPLACE_PREBUILT_APK_INSTALLED := $(LOCAL_PATH)/proprietary/product/priv-app/AndroidMediaShell/AndroidMediaShell.apk
+# extractNativeLibs defaults to true here as well; pre-extract the cast shell
+# libraries so the read-only product partition does not break dlopen.
+LOCAL_PREBUILT_JNI_LIBS_arm64 := \
+    proprietary/product/priv-app/AndroidMediaShell/lib/arm64-v8a/libcast_assistant_1.0.so \
+    proprietary/product/priv-app/AndroidMediaShell/lib/arm64-v8a/libcast_bluetooth_2.0.so \
+    proprietary/product/priv-app/AndroidMediaShell/lib/arm64-v8a/libcast_external_audio_pipeline_1.0.so \
+    proprietary/product/priv-app/AndroidMediaShell/lib/arm64-v8a/libcast_shell_android.so \
+    proprietary/product/priv-app/AndroidMediaShell/lib/arm64-v8a/libcrashpad_handler.so \
+    proprietary/product/priv-app/AndroidMediaShell/lib/arm64-v8a/libcrashpad_handler_trampoline.so
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional

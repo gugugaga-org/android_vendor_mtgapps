@@ -207,7 +207,7 @@ LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
 LOCAL_PRODUCT_MODULE := true
 LOCAL_PRIVILEGED_MODULE := true
-LOCAL_OVERRIDES_PACKAGES := Launcher3 Launcher3QuickStep RKTvLauncher
+LOCAL_OVERRIDES_PACKAGES := Launcher3 Launcher3QuickStep RKTvLauncher TVLauncherNoGMS
 # The prebuilt contains compressed dex; keep it pre-signed so the modern APK
 # signature schemes remain intact.
 LOCAL_DEX_PREOPT := false
@@ -225,6 +225,7 @@ LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
 LOCAL_PRODUCT_MODULE := true
 LOCAL_PRIVILEGED_MODULE := true
+LOCAL_OVERRIDES_PACKAGES := TVRecommendationsNoGMS
 LOCAL_DEX_PREOPT := false
 LOCAL_ENFORCE_USES_LIBRARIES := false
 include $(BUILD_PREBUILT)

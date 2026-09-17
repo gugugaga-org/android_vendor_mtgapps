@@ -21,6 +21,9 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := GoogleTTS
 LOCAL_MODULE_OWNER := mtgapps
 LOCAL_SRC_FILES := proprietary/product/app/GoogleTTS/GoogleTTS.apk
+# Keep the original v2/v3 signature: the legacy Make prebuilt path rewrites
+# this APK (dex uncompression) and drops it, so PackageManager rejects it.
+LOCAL_REPLACE_PREBUILT_APK_INSTALLED := $(LOCAL_PATH)/proprietary/product/app/GoogleTTS/GoogleTTS.apk
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
@@ -62,6 +65,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := KernelSUManager
 LOCAL_MODULE_OWNER := KernelSU
 LOCAL_SRC_FILES := proprietary/product/priv-app/KernelSUManager/KernelSUManager.apk
+LOCAL_REPLACE_PREBUILT_APK_INSTALLED := $(LOCAL_PATH)/proprietary/product/priv-app/KernelSUManager/KernelSUManager.apk
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
@@ -77,6 +81,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := AndroidMediaShell
 LOCAL_MODULE_OWNER := mtgapps
 LOCAL_SRC_FILES := proprietary/product/priv-app/AndroidMediaShell/AndroidMediaShell.apk
+LOCAL_REPLACE_PREBUILT_APK_INSTALLED := $(LOCAL_PATH)/proprietary/product/priv-app/AndroidMediaShell/AndroidMediaShell.apk
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
@@ -90,6 +95,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := AtvAxel
 LOCAL_MODULE_OWNER := mtgapps
 LOCAL_SRC_FILES := proprietary/product/priv-app/AtvAxel/AtvAxel.apk
+LOCAL_REPLACE_PREBUILT_APK_INSTALLED := $(LOCAL_PATH)/proprietary/product/priv-app/AtvAxel/AtvAxel.apk
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
@@ -103,6 +109,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := AtvRemoteService
 LOCAL_MODULE_OWNER := mtgapps
 LOCAL_SRC_FILES := proprietary/product/priv-app/AtvRemoteService/AtvRemoteService.apk
+LOCAL_REPLACE_PREBUILT_APK_INSTALLED := $(LOCAL_PATH)/proprietary/product/priv-app/AtvRemoteService/AtvRemoteService.apk
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
@@ -117,6 +124,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := Backdrop
 LOCAL_MODULE_OWNER := mtgapps
 LOCAL_SRC_FILES := proprietary/product/priv-app/Backdrop/Backdrop.apk
+LOCAL_REPLACE_PREBUILT_APK_INSTALLED := $(LOCAL_PATH)/proprietary/product/priv-app/Backdrop/Backdrop.apk
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
@@ -184,6 +192,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := SssAuthbridgePrebuilt
 LOCAL_MODULE_OWNER := mtgapps
 LOCAL_SRC_FILES := proprietary/product/priv-app/SssAuthbridgePrebuilt/SssAuthbridgePrebuilt.apk
+LOCAL_REPLACE_PREBUILT_APK_INSTALLED := $(LOCAL_PATH)/proprietary/product/priv-app/SssAuthbridgePrebuilt/SssAuthbridgePrebuilt.apk
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional

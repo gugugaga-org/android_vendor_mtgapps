@@ -1,7 +1,7 @@
 # Android TV application vendor package
 
 This repository contains the official KernelSU Manager prebuilt and the
-makefile integration needed by the TPM312 LineageOS 21 product. Android TV
+makefile integration needed by the TPM312 LineageOS 23.2 product. Android TV
 GApps are provided separately by MindTheGapps through `vendor/gapps_tv` and
 the standard `WITH_GMS` switch.
 
